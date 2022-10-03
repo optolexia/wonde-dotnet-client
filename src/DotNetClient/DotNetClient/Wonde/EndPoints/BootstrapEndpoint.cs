@@ -8,7 +8,6 @@ using System.Net.Http.Headers;
 
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using Wonde.Exceptions;
 using Wonde.Helpers;
 using Wonde.Helpers.Exceptions;
