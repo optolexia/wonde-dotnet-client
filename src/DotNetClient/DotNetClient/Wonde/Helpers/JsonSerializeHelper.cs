@@ -38,9 +38,9 @@ namespace Wonde.Helpers
         internal static string buildHttpQueryString(Dictionary<string, string> data, string delimeter = "&")
         {
             string query = "";
-            if(data!= null && data.Count  > 0)
+            if (data != null && data.Count > 0)
             {
-                foreach(KeyValuePair<string, string> kv in data)
+                foreach (KeyValuePair<string, string> kv in data)
                 {
                     query += kv.Key + "=" + HttpUtility.UrlEncode(kv.Value) + delimeter;
                 }
@@ -70,6 +70,8 @@ namespace Wonde.Helpers
                     case JsonToken.StartObject:
                     case JsonToken.Null:
                         return base.ReadJson(reader, objectType, existingValue, serializer);
+                    case JsonToken.Integer:
+                        return Convert.ToInt32(reader.Value);
                     case JsonToken.StartArray:
                         // If it's an array serialize it as a ArrayList of dictionaries
                         return new ArrayList(serializer.Deserialize<List<object>>(reader) ?? throw new InvalidOperationException());
